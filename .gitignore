@@ -1,0 +1,16 @@
+# production
+build
+
+# dependencies
+node_modules/
+
+.idea
+.git
+
+# variables
+.env
+
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

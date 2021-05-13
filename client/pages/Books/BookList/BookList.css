@@ -1,0 +1,39 @@
+.book-list {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray);
+    margin-bottom: 1em;
+    padding: 2em 0;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &__image {
+        width: 100px;
+        border-radius: 3px;
+    }
+
+    &__content {
+        flex: 1 0 0;
+        padding: 0 1em;
+    }
+
+    &__button {
+        background-color: var(--blue);
+        color: var(--white);
+        border: none;
+        padding: .8em;
+        border-radius: 5px;
+        cursor: pointer;
+        align-self: flex-start;
+    }
+
+    &__title {
+        font-size: 1.5em;
+    }
+
+    &__price {
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,11 @@
+.books {
+    width: 900px;
+    margin: 0 auto;
+    background-color: var(--white);
+    min-height: 100vh;
+    padding: 1em;
+
+    &__title {
+        margin-bottom: 1em;
+    }
+}
