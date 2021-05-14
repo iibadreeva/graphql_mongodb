@@ -9,7 +9,7 @@ const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
   mode: isDev ? 'development' : 'production',
   devtool: isDev && 'inline-source-map',
-  target: isDev ? 'browserslist' : 'web', // Fix https://github.com/webpack/webpack-dev-server/issues/2758#issuecomment-710086019
+  target: !isDev ? 'browserslist' : 'web', // Fix https://github.com/webpack/webpack-dev-server/issues/2758#issuecomment-710086019
   entry: {
     app: './client/index.tsx'
   },
@@ -66,7 +66,7 @@ module.exports = {
     historyApiFallback: true,
     publicPath: '/',
     hot: true,
-    open: true,
+    // open: true,
     port: 8000
   }
 };

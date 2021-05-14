@@ -15,11 +15,11 @@ export const BookList: FC<Props> = ({ book, handleDeleteBook }) => {
       <img className="book-list__image" src={book.image} alt={book.title} />
       <div className="book-list__content">
         <h1 className="book-list__title">{book.title}</h1>
-        <p>Автор:</p>
-        <p>Год издания:2021</p>
-        <p>Количество страниц:352</p>
+        <p>Автор:{book.author}</p>
+        <p>Год издания:{book.year}</p>
+        <p>Количество страниц:{book.pages}</p>
         <p>
-          Цена: <span className="book-list__price">749 р.</span>
+          Цена: <span className="book-list__price">{book.price} р.</span>
         </p>
       </div>
       <button

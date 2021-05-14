@@ -1,3 +1,5 @@
+@import "../../../styles/variables.css";
+
 .book-list {
     display: flex;
     justify-content: space-between;

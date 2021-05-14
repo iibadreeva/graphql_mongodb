@@ -5,7 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 
 import { Books } from '@/pages/Books';
 
-import './app.css';
+import './styles/main.css';
 
 const client = new ApolloClient({
   uri: 'http://localhost:9000/api'
