@@ -4,7 +4,6 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 import { Books } from '@/pages/Books';
-// import { BookOwn } from '@/pages/BookOwn';
 
 import './app.css';
 

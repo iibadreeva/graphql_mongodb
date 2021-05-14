@@ -7,7 +7,7 @@ export const bookResolvers: IResolvers = {
   Query: {
     books: async (
       _root: undefined,
-      _args: {},
+      _args: [],
       { db }: { db: Database }
     ): Promise<Book[]> => {
       // throw new Error('Error');

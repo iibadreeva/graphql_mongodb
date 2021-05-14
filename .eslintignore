@@ -5,3 +5,5 @@ build
 webpack.config.js
 postcss.config.js
 index.js
+__generated__
+client/**/__generated__

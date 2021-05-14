@@ -10,7 +10,9 @@ type Error = {
 const apiUrl = 'http://localhost:9000';
 
 export const server = {
-  fetch: async <TData, TVariables = unknown>(body: Props<TVariables>) => {
+  fetch: async <TData, TVariables = unknown>(
+    body: Props<TVariables>
+  ): Promise<{ data: TData; errors: Error[] }> => {
     const res = await fetch(`${apiUrl}/api`, {
       method: 'POST',
       headers: {
@@ -23,6 +25,6 @@ export const server = {
       throw new Error('failed to fetch from server');
     }
 
-    return res.json() as Promise<{ data: TData; errors: Error[] }>;
+    return res.json();
   }
 };
