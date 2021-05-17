@@ -1,4 +1,5 @@
-@import "./variables.css";
+@import 'variables.css';
+@import url(https://fonts.googleapis.com/css?family=Sacramento);
 
 * {
     margin: 0;
