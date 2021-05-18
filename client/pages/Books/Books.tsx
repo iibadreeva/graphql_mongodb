@@ -1,39 +1,18 @@
 import React, { FC } from 'react';
-import { gql } from 'apollo-boost';
 
-import { useQuery, useMutation } from 'react-apollo';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { BookList } from '@/pages/Books/BookList/BookList';
 
-import { Books as BooksData } from './__generated__/Books';
+import { BOOKS } from '@/lib/graphql/queries/Books';
+import { Books as BooksData } from '@/lib/graphql/queries/Books/__generated__/Books';
+import { DELETE_BOOK } from '@/lib/graphql/mutations/DeleteBook';
 import {
   deleteBook as DeleteBooksData,
   deleteBookVariables as DeleteBooksVariables
-} from './__generated__/deleteBook';
+} from '@/lib/graphql/mutations/DeleteBook/__generated__/deleteBook';
+
 import './Books.css';
-
-const BOOKS = gql`
-  query Books {
-    books {
-      id
-      title
-      image
-      price
-      pages
-      year
-      author
-      rating
-    }
-  }
-`;
-
-const DELETE_LISTING = gql`
-  mutation deleteBook($id: ID!) {
-    deleteBook(id: $id) {
-      id
-    }
-  }
-`;
 
 type Props = {
   title: string;
@@ -44,9 +23,10 @@ export const Books: FC<Props> = ({ title }) => {
   const [
     deleteListing,
     { loading: deleteBookLoading, error: deleteBookError }
-  ] = useMutation<DeleteBooksData, DeleteBooksVariables>(DELETE_LISTING);
+  ] = useMutation<DeleteBooksData, DeleteBooksVariables>(DELETE_BOOK);
 
   const handleDeleteBook = async (id: string) => {
+    console.log('del ' + id);
     await deleteListing({ variables: { id } });
 
     refetch();

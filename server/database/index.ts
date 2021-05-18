@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
 
-import { Database } from '@server/lib/types';
+import { Database, User } from '@server/lib/types';
 
 dotenv.config();
 const { DB_USER, DB_USER_PASSWORD, DB_CLUSTER } = process.env;
@@ -18,6 +18,9 @@ export const connectDatabase = async (): Promise<Database> => {
   const db = client.db('main');
 
   return {
-    books: db.collection('books')
+    books: db.collection('books'),
+    bookings: db.collection('bookings'),
+    listings: db.collection('listings'),
+    users: db.collection<User>('users')
   };
 };

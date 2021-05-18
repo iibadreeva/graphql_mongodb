@@ -1,0 +1,53 @@
+@import '../../styles/variables.css';
+
+.log-in {
+    width: 440px;
+    min-height: 424px;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+    border-radius: 20px;
+    position: absolute;
+    z-index: 9;
+    padding: 50px 0 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    &__title {
+        font-size: 1.5em;
+    }
+
+    &__button {
+        display: flex;
+        width: 200px;
+        border: 2px solid var(--blue);
+        border-radius: 2px;
+        margin: 0 auto;
+        padding: 0;
+        cursor: pointer;
+
+        &__img {
+            height: 40px;
+        }
+
+        &__text {
+            background-color: var(--blue);
+            color: var(--white);
+            flex: 1 0 0;
+            line-height: 40px;
+            transition: background-color .3s ease-out;
+
+            &:hover {
+                background: color(var(--blue) a(80%));
+            }
+        }
+    }
+
+    &__info {
+        color: var(--black);
+    }
+}

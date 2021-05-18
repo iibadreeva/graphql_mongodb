@@ -1,0 +1,25 @@
+@import '../../../styles/variables.css';
+
+.user-profile {
+    width: 450px;
+    margin: 0 auto;
+    padding: 1em;
+    border: 1px solid var(--gray);
+    text-align: center;
+
+    &__header {
+        border-bottom: 1px solid var(--gray);
+        margin-bottom: 1em;
+    }
+
+    &__footer {
+        border-top: 1px solid var(--gray);
+        margin-top: 1em;
+        padding-top: 1em;
+    }
+
+    &__avatar {
+        margin-bottom: 1em;
+        border-radius: 50%;
+    }
+}

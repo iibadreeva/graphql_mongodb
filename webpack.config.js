@@ -46,6 +46,13 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]'
+        }
       }
     ]
   },
@@ -67,6 +74,9 @@ module.exports = {
     publicPath: '/',
     hot: true,
     // open: true,
+    proxy: {
+      '/api': 'http://localhost:9000'
+    },
     port: 8000
   }
 };

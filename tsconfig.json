@@ -24,7 +24,8 @@
   },
   "include": [
     "server",
-    "client"
+    "client",
+    "./node_modules/@types"
   ],
   "exclude": ["node_modules", "**/*.js"]
 }
