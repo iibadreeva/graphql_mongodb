@@ -8,8 +8,6 @@
 ![node-current](https://img.shields.io/badge/npm-6.14.11-23239120)
 ![LINT](https://github.com/iibadreeva/graphql_mongodb/workflows/LINT/badge.svg?branch=main)
 
-# moule 17.36 / 6.
-
 ## Описание
 В данном проекте решено было испольховать `graphql` в свзяке `mongodb`, есть страница с книгами [демо]()
 
