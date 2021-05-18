@@ -45,7 +45,7 @@ export const Dropdown: FC<Props> = ({ avatar, nav }) => {
         onClick={handlerToggleNav}
       >
         <div className={b('avatar')}>
-          <img className={b('img')} src={avatar || ''} alt="" />
+          <img className={b('img')} src={avatar || ''} alt="avatar" />
         </div>
         <div className={b('arrow')} />
       </div>

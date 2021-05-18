@@ -13,3 +13,5 @@ export type NotifyType = {
   type: Types | string;
   message: string;
 };
+
+export type ClickType = (event: Event) => void;

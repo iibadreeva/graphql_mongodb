@@ -148,7 +148,6 @@ export const viewerResolvers: IResolvers = {
         if (!viewer) {
           return { didRequest: true };
         }
-        console.log('log in');
 
         return {
           _id: viewer._id,
@@ -167,7 +166,6 @@ export const viewerResolvers: IResolvers = {
       { res }: { res: Response }
     ): Viewer => {
       try {
-        console.log('log out');
         res.clearCookie('viewer', cookieOptions);
         return { didRequest: true };
       } catch (error) {

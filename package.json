@@ -19,12 +19,10 @@
     "prod:server": "wait-on serve && node serve",
     "prod:client": "wait-on build && node index.js",
     "prod": "npm-run-all  --print-label --parallel prod:*",
-    "codegen:schema": "npx apollo client:download-schema --endpoint=http://localhost:9000/api",
-    "codegen:generate2": "npx apollo client:codegen --localSchemaFile=schema.json --includes=client/**/*.tsx --target=typescript",
+    "codegen:schema":  "npx apollo client:download-schema --endpoint=http://localhost:9000/api",
     "codegen:generate": "npx apollo client:codegen --localSchemaFile=schema.json --includes=client/**/*.ts --globalTypesFile=./client/lib/graphql/globalTypes.ts --target=typescript",
     "lint:style": "stylelint --fix ./client/**/*.css",
     "lint:ts": "eslint . --ext .ts,tsx",
-    "lint:ts-fix": "eslint . --ext .ts,tsx --fix",
     "pre-commit": "npm-run-all lint:*"
   },
   "husky": {

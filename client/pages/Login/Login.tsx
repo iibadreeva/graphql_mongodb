@@ -25,7 +25,7 @@ export const Login: FC<Props> = ({ setViewer, setNotify }) => {
   const [logIn, { data: logInData, loading: LogInLoading, error: logInError }] =
     useMutation<LogInData, LogInVariables>(LOG_IN, {
       onCompleted: (data) => {
-        if (data && data.logIn) {
+        if (data?.logIn?.token) {
           setViewer(data.logIn);
 
           setNotify({
@@ -79,7 +79,7 @@ export const Login: FC<Props> = ({ setViewer, setNotify }) => {
 
   if (logInData && logInData.logIn) {
     const { id: viewerId } = logInData.logIn;
-    return <Redirect to={`/user/${viewerId}`} />;
+    return <Redirect to={`/profile/${viewerId}`} />;
   }
 
   return (

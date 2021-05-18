@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 
@@ -21,8 +21,9 @@ type Props = {
 export const Header: FC<Props> = ({ viewer, setViewer, setNotify }) => {
   const [logOut] = useMutation<LogOutData>(LOG_OUT, {
     onCompleted: (data) => {
-      if (data && data.logOut) {
+      if (data?.logOut) {
         setViewer(data.logOut);
+        sessionStorage.removeItem('token');
         setNotify({
           status: true,
           type: Types.Success,
@@ -30,7 +31,7 @@ export const Header: FC<Props> = ({ viewer, setViewer, setNotify }) => {
         });
       }
     },
-    onError: (_data) => {
+    onError: () => {
       setNotify({
         status: true,
         type: Types.Error,
@@ -39,10 +40,10 @@ export const Header: FC<Props> = ({ viewer, setViewer, setNotify }) => {
     }
   });
   const [links, setLinks] = useState(overLinks);
+  const logOutRef = useRef(logOut);
 
   const handleLogOUt = () => {
-    logOut();
-    console.log('logout');
+    logOutRef.current();
   };
 
   const dropLists: DropNavType[] = [
@@ -55,6 +56,12 @@ export const Header: FC<Props> = ({ viewer, setViewer, setNotify }) => {
       handler: handleLogOUt
     }
   ];
+
+  useEffect(() => {
+    if (viewer.id) {
+      setLinks(userLinks);
+    }
+  }, [viewer]);
 
   return (
     <header className="header">
@@ -79,7 +86,7 @@ export const Header: FC<Props> = ({ viewer, setViewer, setNotify }) => {
         ))}
 
         {viewer.id ? (
-          <Dropdown avatar="" nav={dropLists} />
+          <Dropdown avatar={viewer.avatar} nav={dropLists} />
         ) : (
           <Link to="/login" className="header__button">
             Войти
